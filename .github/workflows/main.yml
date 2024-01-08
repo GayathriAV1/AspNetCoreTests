@@ -13,7 +13,8 @@ jobs:
       - name: Restore Dependecies
         run: dotnet restore AspNetCoreTests/AspNetCoreTests.Web/AspNetCoreTests.Web.csproj
       - name: Build
-        run: dotnet build --configuration ${{ env.BuildConfiguration }}
+        uses: Elskom/build-dotnet@54d97a0f7d5d5ca946404976db00d27386b09254
+        #run: dotnet build --configuration ${{ env.BuildConfiguration }}
       - name: Test
         run: dotnet test --no-restore --verbosity normal
         
