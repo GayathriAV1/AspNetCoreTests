@@ -13,7 +13,7 @@ jobs:
       - name: Restore Dependecies
         run: dotnet restore AspNetCoreTests/AspNetCoreTests.Web/AspNetCoreTests.Web.csproj
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration Release
       - name: Test
         run: dotnet test --no-restore --verbosity normal
         
