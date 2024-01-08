@@ -17,5 +17,12 @@ jobs:
         #run: dotnet build --configuration ${{ env.BuildConfiguration }}
       - name: Test
         run: dotnet test "./AspNetCoreTests/AspNetCoreTests.UnitTests" --no-restore --verbosity normal
+      - name: Publish application
+        run: dotnet publish "./AspNetCoreTests" -c Release -o myApp
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+         name: my-artifact
+         path: "./AspNetCoreTests" 
         
     
