@@ -16,6 +16,6 @@ jobs:
         run: dotnet build "./AspNetCoreTests/AspNetCoreTests.Web" --configuration Release --no-restore
         #run: dotnet build --configuration ${{ env.BuildConfiguration }}
       - name: Test
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test "./AspNetCoreTests/AspNetCoreTests.UnitTests" --no-restore --verbosity normal
         
     
