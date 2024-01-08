@@ -6,8 +6,12 @@ jobs:
     steps:
       - name: Get Code
         uses: actions/checkout@v4.1.1
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
       - name: Restore Dependecies
-        run: dotnet restore
+        run: dotnet restore **/*.csproj
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Test
