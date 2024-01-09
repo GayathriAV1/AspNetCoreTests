@@ -1,5 +1,6 @@
 name: Test1
 on: push
+#to add multiple triggers on: [push, workflow_dispatch]
 jobs:
   Publish:
     runs-on: ubuntu-latest
@@ -27,6 +28,8 @@ jobs:
          name: my-artifact
          path: "./AspNetCoreTests" 
   Job2:
+    needs: Publish
+    #MULTIPLE JOBS DEPENDENCY- needs: [job1, job2]
     runs-on: ubuntu-latest
     steps:
       - name: Hello
