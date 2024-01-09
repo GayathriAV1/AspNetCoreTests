@@ -1,7 +1,7 @@
 name: Test1
 on: push
 jobs:
-  test:
+  Publish:
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -26,5 +26,11 @@ jobs:
         with:
          name: my-artifact
          path: "./AspNetCoreTests" 
+  Job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        run: echo "hello!"
+    
         
     
