@@ -1,6 +1,21 @@
 name: Test1
 on: push
 #to add multiple triggers on: [push, workflow_dispatch]
+#to add activities and event filters
+#on:
+  #pull_request:
+    #types: [opened, edited]
+    #types:
+       - opened
+       - edited
+  #workflow_dispatch:
+#Event branch filters
+  #push:
+    #branches:
+       #- main
+       #- 'dev-*'  --> dev-new, dev-new-one
+       #= 'feat/**' --> feat/one, feat/one/two
+  
 jobs:
   Publish:
     runs-on: ubuntu-latest
