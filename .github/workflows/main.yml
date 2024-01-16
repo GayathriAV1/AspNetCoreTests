@@ -6,8 +6,8 @@ on: push
   #pull_request:
     #types: [opened, edited]
     #types:
-       - opened
-       - edited
+    #   - opened
+    #   - edited
   #workflow_dispatch:
 #Event branch filters
   #push:
@@ -42,11 +42,20 @@ jobs:
         with:
          name: my-artifact
          path: "./AspNetCoreTests" 
-  Job2:
+         #MULTIPLE PATHS:
+         #path: |
+           #dist
+           #package.json
+  Job2-deploy:
     needs: Publish
     #MULTIPLE JOBS DEPENDENCY- needs: [job1, job2]
     runs-on: ubuntu-latest
     steps:
+      #download-artifacts
+      - name: Get Build Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: my-artifact       
       - name: Hello
         run: echo "hello!"
     
